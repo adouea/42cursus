@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 13:26:43 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/12 13:30:45 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/13 11:27:51 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/13 11:34:25 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
-	int	result;
-	int	minus;
 
 	i = 0;
-	result = 0;
-	minus = 1;
-	if (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (s[i])
 	{
-		if (str[i] == '-')
-			minus = minus * -1;
+		if (s[i] == c)
+			return (pointeur sur memoire premiere occurence int c dans string(char*) s);
 		i++;
 	}
-	while (str[i] && (str[i] >= '0') && (str[i] <= '9'))
-	{
-		result = (result * 10) + (str[i] - 48);
-		i++;
-	}
-	return (result * minus);
+	return (s[i]?? a tester);
 }

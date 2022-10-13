@@ -5,21 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 10:21:40 by aadoue            #+#    #+#             */
-/*   Updated: 2022/06/16 17:07:05 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/13 11:49:31 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/13 11:49:33 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int     ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int	i;
+        unsigned int    i;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+        i = 0;
+        while ((s1[i] || s2[i]) && (i < n))
+        {
+                if (s1[i] != s2[i])
+                        return (s1[i] - s2[i]);
+                i++;
+        }
+        return (0);
 }
+

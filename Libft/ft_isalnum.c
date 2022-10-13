@@ -5,25 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 13:21:18 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/10 17:35:51 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/12 12:36:26 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/12 12:41:06 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '\0')
-		return (1);
-	while (str[i] != '\0' && (str[i] > 47 && str [i] < 58) 
-			&& ((str[i] > 64 && str [i] < 91)
-                        || (str[i] > 96 && str[i] < 123)))
-		i++;
-	if (str[i] == '\0')
-		return (1);
-	else
-		return (0);
-
-isalpha + isdigit = isalnum
+int     ft_isalnum(int c)
+{        
+        if ((c > 64 && c < 91) || (c > 96 && c < 123) || (c > 47 && c < 58))
+                return (8);
+        else
+                return (0);
+}

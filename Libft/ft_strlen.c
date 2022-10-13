@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 08:40:37 by aadoue            #+#    #+#             */
-/*   Updated: 2022/06/18 16:19:16 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/12 13:07:51 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/12 13:15:20 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+long unsigned int     ft_strlen(char *str)
 {
-	int	i;
+        long unsigned int     i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+        i = 0;
+        while (str[i])
+                i++;
+        return (i);
 }
