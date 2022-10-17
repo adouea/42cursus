@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:27:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/17 11:47:38 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/17 11:52:16 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/17 12:01:30 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *s, int c)
+#include <stdlib.h>
+
+void	*ft_memset(char *s, int c, int n)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (i < n)
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		s[i] = c;
 		i++;
 	}
 	return (0);
+}
+
+void	*ft_calloc(long unsigned int nmemb, unsigned int size)
+{
+	char	*mem;
+
+	mem = malloc((nmemb + 1) * size);
+	if(!mem)
+		return (0);
+	ft_memset(mem, 0, nmemb);
+	return (*mem);
 }

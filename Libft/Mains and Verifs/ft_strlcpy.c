@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 10:24:59 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/17 12:56:23 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/17 12:36:37 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/17 12:40:01 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,38 @@ long unsigned int     ft_strlen(char *str)
         return (i);
 }
 
-long unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+long unsigned int       ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
+        unsigned int    i;
 
-	i = 0;
-	if (size > ft_strlen(src) || size <= 0)
-		return (ft_strlen(src));
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+        i = 0;
+        if (size > ft_strlen(src))
+                return (ft_strlen(src));
+        if (size == 0)
+                return (ft_strlen(src));
+        while (src[i] != '\0' && i < size)
+        {
+                dest[i] = src[i];
+                i++;
+        }
+        dest[i] = '\0';
+        return (ft_strlen(src));
 }
 
-int	main()
+//DONT FORGET THE "-lbsd" AT THE END OF COMPIL COMMAND : "gcc -W* *.c -lbsd"
+
+int     main()
 {
-	char src[12] = "Hello World";
-	char dest[12] = "Hella World";
+        char src[12] = "Hello World";
+        char dest[12] = "Hella World";
 
-	printf("%lu\n", ft_strlen(src));
-	printf("%s\n", src);
-	printf("%s\n", dest);
+        printf("%s\n", src);
+        printf("%s\n", dest);
 
-	printf("%lu\n", ft_strlcpy(dest, src, 6));
-	printf("%s\n\n", dest);
-	
-	char src2[12] = "Hello World";
+        printf("%lu\n", ft_strlcpy(dest, src, 6));
+        printf("%s\n\n", dest);
+
+        char src2[12] = "Hello World";
         char dest2[12] = "Hella World";
 
         printf("%s\n", src2);
@@ -60,5 +63,5 @@ int	main()
         printf("%lu\n", strlcpy(dest2, src2, 6));
         printf("%s\n", dest2);
 
-	return (0);
-}
+        return (0);
+}                              
