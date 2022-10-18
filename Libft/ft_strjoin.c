@@ -5,62 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 14:01:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/06/27 18:31:41 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/18 16:51:18 by aadoue            #+#    #+#             */
+/*   Updated: 2022/10/18 17:16:42 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int	len_tot(char *sep, int size, char **strs)
+long unsigned int	len_tot(const char *s1, const char *s2)
 {
+	long unsigned int	lentot;
 	int	i;
-	int	j;
-	int	lentot;
 
-	i = 0;
-	j = 0;
 	lentot = 0;
-	if (size <= 0)
-		return (0);
-	while (i < size)
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		while (strs[i][j])
-			j++;
-		lentot = lentot + j;
-		j = 0;
+		lentot++;
 		i++;
 	}
-	while (sep[j])
-		j++;
-	lentot = 1 + lentot + ((size - 1) * j);
+	i = 0;
+	while (s2[i] != '\0')
+	{
+		lentot++;
+		i++;
+	}
 	return (lentot);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*join;
-	int		i;
-	int		j;
-	int		k;
+	char	*s3;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = -1;
-	k = 0;
-	join = malloc((len_tot(sep, size, strs)) * sizeof(char));
-	if (!join || size <= 0)
-		return (join);
-	while (i < size)
+	j = 0;
+	s3 = malloc((len_tot(s1, s2)) * sizeof(char));
+	if (!s3)
+		return (s3);
+	while (s1[i] != '\0')
 	{
-		while (strs[i][++j])
-			join[k++] = strs[i][j];
+		s3[i] = s1[i];
 		i++;
-		j = -1;
-		while (sep[++j] && i < size)
-			join[k++] = sep[j];
-		j = -1;
 	}
-	join[k] = '\0';
-	return (join);
+	while (s2[j] != '\0')
+	{
+		s3[i] = s2[j];
+		i++;
+		j++;
+	}
+	s3[i] = '\0';
+	return (s3);
+}
+
+int main()
+{
+	printf("%s\n", ft_strjoin("Hello", "World!"));
+	return (0);
 }
