@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:26:12 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/20 18:29:45 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/24 11:55:51 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,17 @@ long unsigned int	lines_count(char const *s, char c)
 
 char	**ft_split(char *s, char c)
 {	
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	end;
+	long unsigned int	i;
+	long unsigned int	j;
+	long unsigned int	end;
 	char	**tab;
+	char	*stock;
 	
 	i = 0;
 	j = 0;
 	end = 0;
-	tab = malloc(1000000 * lines_count(s, c) * sizeof(char));
+	stock = NULL;
+	tab = malloc(8 * lines_count(s, c) * sizeof(char));
 	if (tab)
 	{
 		while (s[i] != '\0')
@@ -85,24 +87,26 @@ char	**ft_split(char *s, char c)
 				end = i;
 				while (s[end] != c)
 					end++;
+				stock = ft_substr(s, i, (end - i));
+				tab[j] = stock;
 				i = end;
-				tab[j] = ft_substr(s, i, (end - i));
 				j++;
 			}
 			i++;
 		}
-		printf("%s\n", tab[0]);
-		//printf("%s\n", tab[1]);
-		//printf("%s\n", tab[2]);
-		//printf("%s\n", tab[3]);
-		//printf("%s\n", tab[4]);
+		i = 0;
 		tab[j] = '\0';
+		while (i < lines_count(s, c))
+		{
+			printf("%s\n", tab[i]);
+			i++;
+		}
 	}
 	return (tab);
 }
 
 int main()
 {
-	ft_split("Hello World This is a beautiful", ' ');
+	ft_split("Hello World This is a beautifullynessly", ' ');
 	return (0);
 }       
