@@ -6,11 +6,11 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:34:32 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/17 11:47:21 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:19:07 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strrchr(char *s, int c)
+char    *ft_strrchr(const char *s, int c)
 {
         int     i;
 
@@ -23,5 +23,5 @@ char    *ft_strrchr(char *s, int c)
                         return (&s[i]);
                 i--;
         }
-        return (0);
+        return (&s[i]);
 }

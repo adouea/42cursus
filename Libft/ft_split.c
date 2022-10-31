@@ -6,50 +6,31 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:26:12 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/24 11:55:51 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:41:12 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
+#include <libft.h>
 
-long unsigned int	c_count(char const *s, char c)
-{
-	long unsigned int	nb;
-	int	i;
+//long unsigned int	c_count(char const *s, char c)
+//{
+//	long unsigned int	nb;
+//	int	i;
+//
+//	nb = 0;
+//	i = 0;
+//	while (s[i] != '\0')
+//	{
+//		if (s[i] == c)
+//			nb++;
+//		i++;
+//	}
+//	return (nb);
+//}
 
-	nb = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			nb++;
-		i++;
-	}
-	return (nb);
-}
+static char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-char	*ft_substr(char const *s, unsigned int start, unsigned int len)
-{
-	char	*snew;
-	unsigned int	i;
-
-	i = 0;
-	snew = malloc((len + 1) * sizeof(char));
-	if (!snew || len <= 0)
-		return (0);
-	while (i < len)
-	{
-		snew[i] = s[start];
-		i++;
-		start++;
-	}
-	snew[i] = '\0';
-	return (snew);
-}
-
-long unsigned int	lines_count(char const *s, char c)
+static long unsigned int	lines_count(char const *s, char c)
 {
 	long unsigned int	lines;
 	int	i;
@@ -65,7 +46,7 @@ long unsigned int	lines_count(char const *s, char c)
 	return (lines);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {	
 	long unsigned int	i;
 	long unsigned int	j;
@@ -103,10 +84,4 @@ char	**ft_split(char *s, char c)
 		}
 	}
 	return (tab);
-}
-
-int main()
-{
-	ft_split("Hello World This is a beautifullynessly", ' ');
-	return (0);
 }       

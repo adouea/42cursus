@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:49:31 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 11:49:33 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:20:13 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-        unsigned int    i;
+        size_t    i;
 
         i = 0;
         while ((s1[i] || s2[i]) && (i < n))

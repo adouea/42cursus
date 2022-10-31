@@ -6,23 +6,15 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:15:56 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/14 13:16:00 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:33:33 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <libft.h>
 
-int     ft_strlen(char *str)
-{
-        int     i;
+size_t	ft_strlen(const char *str);
 
-        i = 0;
-        while (str[i])
-                i++;
-        return (i);
-}
-
-char    *ft_strdup(char *src)
+char    *ft_strdup(const char *src)
 {
         char    *stock;
         int             i;

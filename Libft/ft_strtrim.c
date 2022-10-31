@@ -6,22 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:28:52 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/18 19:05:49 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:38:35 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <libft.h>
 
-long unsigned int     ft_strlen(const char *str)
-{
-        long unsigned int     i;
-
-        i = 0;
-        while (str[i])
-                i++;
-        return (i);
-}
+static size_t  ft_strlen(const char *s);
 
 long unsigned int	occur(char const *s1, char const *set)
 {
@@ -76,10 +67,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	return (trim);
-}
-
-int	main()
-{
-	printf("%s\n", ft_strtrim("Hello World", "Hello"));
-	return (0);
 }

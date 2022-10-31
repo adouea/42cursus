@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:00:29 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 15:03:47 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:03:48 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(char *dest, char *src, int n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
@@ -20,5 +20,5 @@ void	*ft_memcpy(char *dest, char *src, int n)
 		dest[i] = src[i];
 		i++;
 	}
-	return (*dest);
+	return (dest[i]);
 }

@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:34:46 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 14:41:29 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:22:43 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(char *s1, char *s2, int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-        int     i;
+        size_t     i;
         
         i = 0;
         while (i < n)

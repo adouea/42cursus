@@ -6,14 +6,15 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:51:18 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/18 17:16:42 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:37:31 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <libft.h>
 
-long unsigned int	len_tot(const char *s1, const char *s2)
+void    *ft_calloc(size_t nmemb, size_t size);
+
+static long unsigned int	len_tot(const char *s1, const char *s2)
 {
 	long unsigned int	lentot;
 	int	i;
@@ -42,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	s3 = malloc((len_tot(s1, s2)) * sizeof(char));
+	s3 = ft_calloc((len_tot(s1, s2)) * sizeof(char));
 	if (!s3)
 		return (s3);
 	while (s1[i] != '\0')
@@ -58,10 +59,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	s3[i] = '\0';
 	return (s3);
-}
-
-int main()
-{
-	printf("%s\n", ft_strjoin("Hello", "World!"));
-	return (0);
 }

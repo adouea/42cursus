@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:08:25 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 14:28:09 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:01:50 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(char *s, int c, int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 	
 	i = 0;
 	while (i < n)
@@ -20,5 +20,5 @@ void	*ft_memset(char *s, int c, int n)
 		s[i] = c;
 		i++;
 	}
-	return (0);
+	return (s[i]);
 }

@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:07:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/12 13:15:20 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 14:59:44 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long unsigned int     ft_strlen(char *str)
+size_t     ft_strlen(const char *s)
 {
-        long unsigned int     i;
+        size_t	i;
 
         i = 0;
         while (str[i])

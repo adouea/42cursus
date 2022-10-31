@@ -6,26 +6,15 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:52:16 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/17 12:01:30 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:32:39 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <libft.h>
 
-void	*ft_memset(char *s, int c, int n)
-{
-	int	i;
+void	*ft_memset(void *s, int c, size_t n);
 
-	i = 0;
-	while (i < n)
-	{
-		s[i] = c;
-		i++;
-	}
-	return (0);
-}
-
-void	*ft_calloc(long unsigned int nmemb, unsigned int size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*mem;
 

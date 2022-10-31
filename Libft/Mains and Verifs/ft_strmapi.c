@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:57:41 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:43:01 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:42:33 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		}
 	}
 	return (stock);
+}
+
+int main()
+{
+	char (*f)(unsigned int, char);
+	f = &char_to_char;
+
+	printf("%s\n", ft_strmapi("Hello World", f));
+	return (0);
 }

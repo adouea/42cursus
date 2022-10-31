@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:29:00 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 14:30:43 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/10/31 15:21:04 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(char *s, int c, int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 	
 	i = 0;
 	while (i < n)
