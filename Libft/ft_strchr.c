@@ -6,9 +6,11 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:27:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:18:05 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:08:55 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h" 
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -18,8 +20,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (&s[i]);
+		{
+			return (&((char *)s)[i]);
+		}
 		i++;
 	}
-	return (&s[i]);
+	return (&((char *)s)[i]);
 }

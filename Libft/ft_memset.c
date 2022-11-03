@@ -6,19 +6,21 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:08:25 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:01:50 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:22:31 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (i < n)
 	{
-		s[i] = c;
+		((char *)s)[i] = c;
 		i++;
 	}
-	return (s[i]);
+	return (s);
 }

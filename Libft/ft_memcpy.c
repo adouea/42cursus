@@ -6,9 +6,11 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:00:29 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:03:48 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:15:49 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -17,8 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		dest[i] = src[i];
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
-	return (dest[i]);
+	return (dest);
 }

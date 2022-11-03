@@ -6,18 +6,16 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:51:18 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:37:31 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:32:57 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-void    *ft_calloc(size_t nmemb, size_t size);
+#include "libft.h"
 
 static long unsigned int	len_tot(const char *s1, const char *s2)
 {
 	long unsigned int	lentot;
-	int	i;
+	int					i;
 
 	lentot = 0;
 	i = 0;
@@ -38,12 +36,12 @@ static long unsigned int	len_tot(const char *s1, const char *s2)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
-	s3 = ft_calloc((len_tot(s1, s2)) * sizeof(char));
+	s3 = malloc((len_tot(s1, s2)) * sizeof(char));
 	if (!s3)
 		return (s3);
 	while (s1[i] != '\0')

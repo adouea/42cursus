@@ -6,21 +6,25 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:04:18 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/13 15:15:16 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:20:19 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memmove(char *dest, char *src, int n)
-{       
-        int     i;
-	char	*stock;
+#include "libft.h"
 
-        i = 0;
+void	*ft_memmove(char *dest, char *src, int n)
+{
+	int		i;
+	char	*stock;
+	void	*ptr;
+
+	i = 0;
 	stock = NULL;
-        while (i < n)
-        {
-                stock[i] = src[i];
-                i++;
+	ptr = &dest;
+	while (i < n)
+	{
+		stock[i] = src[i];
+		i++;
 	}
 	i = 0;
 	while (i < n)
@@ -28,5 +32,5 @@ void    *ft_memmove(char *dest, char *src, int n)
 		dest[i] = stock [i];
 		i++;
 	}
-	return (*dest);
+	return (ptr);
 }

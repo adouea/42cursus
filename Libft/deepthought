@@ -1,0 +1,685 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+3G2.42angouleme.fr
+Linux 5.4.0-131-generic x86_64
+$> date
+Thu 03 Nov 2022 01:57:50 PM CET
+$> gcc --version
+gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$> clang --version
+Ubuntu clang version 12.0.0-3ubuntu1~20.04.5
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+
+= libft.h=======================================================================
+$> norminette libft.h | grep -E '(Error|Warning)'
+/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.h: Error!
+Error: HEADER_PROT_NAME     (line:  13, col:   1):	Wrong header protection name
+Error: HEADER_PROT_ALL_2    (line:  14, col:   1):	ERROR NOT FOUND
+Error: HEADER_PROT_ALL_2    (line:  15, col:   1):	ERROR NOT FOUND
+Error: PREPROC_BAD_INDENT   (line:  15, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  16, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  17, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  18, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  19, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  20, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  21, col:   1):	Bad preprocessor indentation
+Error: PREPROC_BAD_INDENT   (line:  22, col:   1):	Bad preprocessor indentation
+Error: HEADER_PROT_ALL      (line:  24, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  25, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  26, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  27, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  28, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  29, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  29, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  30, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  30, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  31, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  31, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  32, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  32, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  33, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  33, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  34, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  34, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  35, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  36, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  37, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  37, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  38, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  38, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  39, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  40, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  40, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  41, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  42, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  42, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  43, col:   1):	Header protection must include all the instructions
+Error: HEADER_PROT_ALL      (line:  44, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  44, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  45, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  45, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  46, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  46, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  47, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  47, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  48, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  48, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  49, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  49, col:  11):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  50, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  50, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  51, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  51, col:  10):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  52, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  52, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  53, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  53, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  54, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  54, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  55, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  55, col:   9):	Misaligned function declaration
+Error: HEADER_PROT_ALL      (line:  56, col:   1):	Header protection must include all the instructions
+Error: MISALIGNED_FUNC_DECL (line:  56, col:   9):	Misaligned function declaration
+Norme check failed
+
+= Compiling libft ==============================================================
+$> make re
+rm -f ft_*.o
+rm -f libft.a
+libft.a
+make: libft.a: Command not found
+make: *** [Makefile:21: all] Error 127
+
+$> make bonus
+make: *** No rule to make target 'bonus'.  Stop.
+
+$> ls -la libft.a
+
+= Part1_functions ==============================================================
+
+= ft_memset.c ==================================================================
+$> norminette ft_memset.c | grep -E '(Error|Warning)'
+..//ft_memset.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  16, col:   1):	Space on empty line
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memset.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_bzero.c ===================================================================
+$> norminette ft_bzero.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_bzero.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_calloc.c ==================================================================
+$> norminette ft_calloc.c | grep -E '(Error|Warning)'
+..//ft_calloc.c: Error!
+Error: SPACE_AFTER_KW       (line:  22, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  22, col:   7):	Missing space before parenthesis (brace/bracket)
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_calloc.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_memcpy.c ==================================================================
+$> norminette ft_memcpy.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcpy.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_memmove.c =================================================================
+$> norminette ft_memmove.c | grep -E '(Error|Warning)'
+..//ft_memmove.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   5):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   8):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  15, col:  12):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  12):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  16, col:  13):	Misaligned variable declaration
+Error: SPACE_REPLACE_TAB    (line:  18, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  21, col:   9):	Space on empty line
+Error: SPACE_REPLACE_TAB    (line:  22, col:  17):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  23, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memmove.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_memchr.c ==================================================================
+$> norminette ft_memchr.c | grep -E '(Error|Warning)'
+..//ft_memchr.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  16, col:   1):	Space on empty line
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memchr.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_memcmp.c ==================================================================
+$> norminette ft_memcmp.c | grep -E '(Error|Warning)'
+..//ft_memcmp.c: Error!
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  15, col:  15):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  15):	Found space when expecting tab
+Error: SPACE_EMPTY_LINE     (line:  16, col:   1):	Space on empty line
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  19, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  19, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  21, col:  25):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  22, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  23, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  24, col:   9):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcmp.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strlen.c ==================================================================
+$> norminette ft_strlen.c | grep -E '(Error|Warning)'
+..//ft_strlen.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   7):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:  11):	space before function name
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:   9):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  19, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:   9):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlen.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strdup.c ==================================================================
+$> norminette ft_strdup.c | grep -E '(Error|Warning)'
+..//ft_strdup.c: Error!
+Error: CONSECUTIVE_SPC      (line:  17, col:   5):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  17, col:   8):	space before function name
+Error: TOO_FEW_TAB          (line:  19, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  19, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  19, col:  13):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  19, col:  13):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  20, col:  12):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  20, col:  12):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  20, col:  25):	Misaligned variable declaration
+Error: SPACE_REPLACE_TAB    (line:  22, col:   9):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  23, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  24, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  25, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  25, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  26, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  27, col:   9):	Space on empty line
+Error: SPACE_REPLACE_TAB    (line:  28, col:  17):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  29, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  30, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  30, col:   9):	Space on empty line
+Error: SPACE_REPLACE_TAB    (line:  31, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  32, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  32, col:   9):	Found space when expecting tab
+Error: EMPTY_LINE_EOF       (line:  34, col:   1):	Empty line at end of file
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strdup.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strlcat.c =================================================================
+$> norminette ft_strlcat.c | grep -E '(Error|Warning)'
+..//ft_strlcat.c: Error!
+Error: SPACE_REPLACE_TAB    (line:  15, col:  14):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcat.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strlcpy.c =================================================================
+$> norminette ft_strlcpy.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcpy.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strchr.c ==================================================================
+$> norminette ft_strchr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strchr.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strrchr.c =================================================================
+$> norminette ft_strrchr.c | grep -E '(Error|Warning)'
+..//ft_strrchr.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   5):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  15, col:  12):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  12):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:   9):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  19, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  22, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  23, col:  25):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  24, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  25, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  25, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  26, col:   9):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strrchr.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strnstr.c =================================================================
+$> norminette ft_strnstr.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strnstr.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strncmp.c =================================================================
+$> norminette ft_strncmp.c | grep -E '(Error|Warning)'
+..//ft_strncmp.c: Error!
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  15, col:  15):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  15):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  19, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  19, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  21, col:  25):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  22, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  23, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  24, col:   9):	Found space when expecting tab
+Error: EMPTY_LINE_EOF       (line:  26, col:   1):	Empty line at end of file
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strncmp.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_atoi.c ====================================================================
+$> norminette ft_atoi.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_atoi.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_isalpha.c =================================================================
+$> norminette ft_isalpha.c | grep -E '(Error|Warning)'
+..//ft_isalpha.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalpha.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_isdigit.c =================================================================
+$> norminette ft_isdigit.c | grep -E '(Error|Warning)'
+..//ft_isdigit.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isdigit.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_isalnum.c =================================================================
+$> norminette ft_isalnum.c | grep -E '(Error|Warning)'
+..//ft_isalnum.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isalnum.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_isascii.c =================================================================
+$> norminette ft_isascii.c | grep -E '(Error|Warning)'
+..//ft_isascii.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isascii.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_isprint.c =================================================================
+$> norminette ft_isprint.c | grep -E '(Error|Warning)'
+..//ft_isprint.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isprint.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_toupper.c =================================================================
+$> norminette ft_toupper.c | grep -E '(Error|Warning)'
+..//ft_toupper.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_toupper.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_tolower.c =================================================================
+$> norminette ft_tolower.c | grep -E '(Error|Warning)'
+..//ft_tolower.c: Error!
+Error: CONSECUTIVE_SPC      (line:  13, col:   4):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  13, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  14, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  14, col:   9):	Space before newline
+Error: TOO_FEW_TAB          (line:  15, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  15, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  16, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  16, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  17, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  18, col:  17):	Found space when expecting tab
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_tolower.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= Part2_functions ==============================================================
+
+= ft_strmapi.c =================================================================
+$> norminette ft_strmapi.c | grep -E '(Error|Warning)'
+..//ft_strmapi.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:  14):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  14):	Found space when expecting tab
+Error: SPACE_EMPTY_LINE     (line:  16, col:   1):	Space on empty line
+Error: MISALIGNED_VAR_DECL  (line:  26, col:  13):	Misaligned variable declaration
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strmapi.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_substr.c ==================================================================
+$> norminette ft_substr.c | grep -E '(Error|Warning)'
+..//ft_substr.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  21, col:   1):	Space on empty line
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_substr.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strjoin.c =================================================================
+$> norminette ft_strjoin.c | grep -E '(Error|Warning)'
+..//ft_strjoin.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:   5):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:   5):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  20, col:   9):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:  41, col:   9):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:  42, col:   9):	Misaligned variable declaration
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strjoin.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_strtrim.c =================================================================
+$> norminette ft_strtrim.c | grep -E '(Error|Warning)'
+..//ft_strtrim.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:  14):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:  14):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  21, col:  25):	Misaligned variable declaration
+Error: SPACE_AFTER_KW       (line:  37, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  37, col:  11):	Missing space before parenthesis (brace/bracket)
+Error: MISALIGNED_VAR_DECL  (line:  43, col:  25):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:  45, col:  13):	Misaligned variable declaration
+Error: TOO_MANY_LINES       (line:  70, col:   1):	Function has more than 25 lines
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strtrim.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_split.c ===================================================================
+$> norminette ft_split.c | grep -E '(Error|Warning)'
+..//ft_split.c: Error!
+Error: MISALIGNED_VAR_DECL  (line:  36, col:   9):	Misaligned variable declaration
+Error: SPACE_EMPTY_LINE     (line:  37, col:   1):	Space on empty line
+Error: MISALIGNED_VAR_DECL  (line:  54, col:  13):	Misaligned variable declaration
+Error: MISALIGNED_VAR_DECL  (line:  55, col:  13):	Misaligned variable declaration
+Error: SPACE_EMPTY_LINE     (line:  56, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  87, col:   1):	Function has more than 25 lines
+Error: CONSECUTIVE_SPC      (line:  87, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  87, col:   8):	Space before newline
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_split.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_itoa.c ====================================================================
+$> norminette ft_itoa.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_itoa.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_striteri.c ================================================================
+$> norminette ft_striteri.c | grep -E '(Error|Warning)'
+..//ft_striteri.c: Error!
+Error: MISSING_IDENTIFIER   (line:  13, col:  29):	missing type qualifier or identifier in function arguments
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_striteri.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_putchar_fd.c ==============================================================
+$> norminette ft_putchar_fd.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putchar_fd.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_putstr_fd.c ===============================================================
+$> norminette ft_putstr_fd.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putstr_fd.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_putendl_fd.c ==============================================================
+$> norminette ft_putendl_fd.c | grep -E '(Error|Warning)'
+..//ft_putendl_fd.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:   5):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  15, col:   8):	space before function name
+Error: CONSECUTIVE_SPC      (line:  16, col:   2):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  16, col:   8):	Space before newline
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  17, col:  12):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  17, col:  12):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  19, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  20, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  21, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  21, col:   9):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  21, col:  10):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  21, col:  16):	Space before newline
+Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  22, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  23, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  23, col:  17):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  23, col:  18):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  23, col:  24):	Space before newline
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  24, col:  25):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  25, col:  25):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  26, col:  17):	Space on empty line
+Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
+Error: TAB_INSTEAD_SPC      (line:  27, col:  24):	Found tab when expecting space
+Error: TOO_FEW_TAB          (line:  28, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  28, col:   9):	Space on empty line
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putendl_fd.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_putnbr_fd.c ===============================================================
+$> norminette ft_putnbr_fd.c | grep -E '(Error|Warning)'
+..//ft_putnbr_fd.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:   5):	Two or more consecutives spaces
+Error: SPACE_REPLACE_TAB    (line:  15, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  17, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  18, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  18, col:   9):	Space on empty line
+Error: TOO_FEW_TAB          (line:  19, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  19, col:  17):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  20, col:   1):	Missing tabs for indent level
+Error: SPACE_EMPTY_LINE     (line:  20, col:   9):	Space on empty line
+Norme check failed
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_putnbr_fd.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= Bonus_functions ==============================================================
+
+= ft_lstnew_bonus.c ============================================================
+$> norminette ft_lstnew_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstnew.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstnew.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstdelone_bonus.c =========================================================
+$> norminette ft_lstdelone_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstdelone.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstdelone.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstclear_bonus.c ==========================================================
+$> norminette ft_lstclear_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstclear.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstclear.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstadd_front_bonus.c ======================================================
+$> norminette ft_lstadd_front_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstadd_front.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstadd_front.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstadd_back_bonus.c =======================================================
+$> norminette ft_lstadd_back_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstadd_back.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstadd_back.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstsize_bonus.c ===========================================================
+$> norminette ft_lstsize_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstsize.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstsize.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstiter_bonus.c ===========================================================
+$> norminette ft_lstiter_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstiter.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstiter.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstmap_bonus.c ============================================================
+$> norminette ft_lstmap_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstmap.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstmap.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'
+
+= ft_lstlast_bonus.c ===========================================================
+$> norminette ft_lstlast_bonus.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_lstlast.c main.c libft.a -o user_exe
+
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft//ft_lstlast.c'
+clang: error: no such file or directory: '/tmp/tmp.njeoAx0X3i/libft/warmachine/dirlibft/libft.a'

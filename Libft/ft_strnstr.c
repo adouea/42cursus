@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:11:32 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:27:36 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:35:41 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -24,14 +24,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = 0;
 	llen = ft_strlen(little);
 	if (llen == 0)
-		return (big);
+		return ((char *)big);
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
 		while (big[i + j] == little[j])
 		{
 			if (j + 1 == llen)
-				return (&big[i]);
+				return (&((char *)big)[i]);
 			j++;
 		}
 		i++;

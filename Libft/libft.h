@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:56:52 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:44:20 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:24:53 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <bsd/string.h>
 #include <ctype.h>
 #include <stdint.h>
+#include <stddef.h>
 
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);

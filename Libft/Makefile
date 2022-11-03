@@ -1,31 +1,26 @@
-FILES = ft_*.c
+FILES = ft_.c tout tapper
 
-OBJS = ${FILES:.c=.o}
-
-HEADERS = libft.h
+OBJS = $(FILES:.c=.o)
 
 NAME = libft.a
 
 CC = cc
 RM = rm -f
 LIB = ar rc
-
 CFLAGS = -Werror -Wall -Wextra
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+all : $(NAME)
+	
+$(NAME): $(OBJS)
+	$(LIB) $(NAME)
 
-${NAME}: ${OBJS}
-	${LIB} libstr.a ${OBJS} ${HEADERS}
-
-all :
-	${NAME}
-
+$(OBJS):
+	$(CC) $(CLAGS) -c $(FILES) 	
 clean:
-	${RM} ${OBJS}
+	$(RM) $(OBJS)
 
 fclean: clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 
 re: fclean all
 

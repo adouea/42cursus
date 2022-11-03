@@ -6,22 +6,24 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:34:32 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:19:07 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/03 16:15:16 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strrchr(const char *s, int c)
-{
-        int     i;
+#include "libft.h"
 
-        i = 0;
-        while (s[i])
-        	i++;
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
 	while (i >= 0)
 	{
-                if (s[i] == c)
-                        return (&s[i]);
-                i--;
-        }
-        return (&s[i]);
+		if (s[i] == c)
+			return (&((char *)s)[i]);
+		i--;
+	}
+	return (&((char *)s)[i]);
 }
