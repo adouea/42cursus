@@ -6,11 +6,11 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:26:12 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/31 15:41:12 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/05 15:46:40 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 //long unsigned int	c_count(char const *s, char c)
 //{
@@ -28,7 +28,7 @@
 //	return (nb);
 //}
 
-static char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 static long unsigned int	lines_count(char const *s, char c)
 {
@@ -59,29 +59,28 @@ char	**ft_split(char const *s, char c)
 	end = 0;
 	stock = NULL;
 	tab = malloc(8 * lines_count(s, c) * sizeof(char));
-	if (tab)
+	if (!tab)
+		return (tab);
+	while (s[i] != '\0')
 	{
-		while (s[i] != '\0')
+		if (s[i] != c)
 		{
-			if (s[i] != c)
-			{
-				end = i;
-				while (s[end] != c)
-					end++;
-				stock = ft_substr(s, i, (end - i));
-				tab[j] = stock;
-				i = end;
-				j++;
-			}
-			i++;
+			end = i;
+			while (s[end] != c)
+				end++;
+			stock = ft_substr(s, i, (end - i));
+			tab[j] = stock;
+			i = end;
+			j++;
 		}
-		i = 0;
-		tab[j] = '\0';
-		while (i < lines_count(s, c))
-		{
-			printf("%s\n", tab[i]);
-			i++;
-		}
+		i++;	
 	}
+	i = 0;
+	tab[j] = '\0';
+	//while (i < lines_count(s, c))
+	//{
+	//	printf("%s\n", tab[i]);
+	//	i++;
+	//}
 	return (tab);
 }       

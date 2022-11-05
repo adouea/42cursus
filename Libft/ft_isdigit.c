@@ -6,14 +6,14 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:27:23 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/12 12:34:53 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:37:07 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_isdigit(int c)
-{        
-        if (c > 47 && c < 58)
-                return (2048);
-        else
-                return (0);
+int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (2048);
+	else
+		return (0);
 }

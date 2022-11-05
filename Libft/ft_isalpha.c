@@ -6,14 +6,14 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:24:15 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/12 12:24:41 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:36:20 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-                return (1024);
+		return (1024);
 	else
 		return (0);
 }

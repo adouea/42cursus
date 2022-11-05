@@ -6,14 +6,14 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:38:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/10/12 13:42:29 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:40:40 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_tolower(int c)
-{        
-        if (c > 64 && c < 91)
-                return (c + 32);
-        else
-                return (c);
+int	ft_tolower(int c)
+{
+	if (c > 64 && c < 91)
+		return (c + 32);
+	else
+		return (c);
 }
