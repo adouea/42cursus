@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 17:23:30 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/03 16:24:55 by aadoue           ###   ########.fr       */
+/*   Created: 2022/11/09 16:46:26 by aadoue            #+#    #+#             */
+/*   Updated: 2022/11/09 16:47:17 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,26 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*snew;
-	size_t	i;
+	char	*dest;
+	size_t	len_s;
 
-	i = 0;
-	snew = malloc((len + 1) * sizeof(char));
-	if (!snew || len <= 0 || len > SIZE_MAX)
-		return (0);
-	while (i < len)
+	if (!s)
+		return (NULL);
+	len_s = ft_strlen(s);
+	if (start > len_s || len <= 0)
 	{
-		snew[i] = s[start];
-		i++;
-		start++;
+		dest = ft_strdup("");
+		return (dest);
 	}
-	snew[i] = '\0';
-	return (snew);
+	if (len + start > len_s)
+		dest = malloc(sizeof(char) * ((len_s - start) + 1));
+	else
+		dest = malloc(sizeof(char) * (len + 1));
+	if (!dest)
+		return (NULL);
+	if (len + start > len_s)
+		ft_strlcpy(dest, s + start, len_s - (start + len + 1));
+	else
+		ft_strlcpy(dest, s + start, len + 1);
+	return (dest);
 }

@@ -5,73 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 18:28:52 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/05 15:41:56 by aadoue           ###   ########.fr       */
+/*   Created: 2022/11/09 14:49:59 by aadoue            #+#    #+#             */
+/*   Updated: 2022/11/09 18:47:43 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char const *s);
-
-static char	*trimmer(char const *s1, char const *set, char *trim, int i)
+static size_t	comp(char c, char const *set)
 {
-	size_t	j;
-	int		k;
-
-	j = 0;
-	k = 0;
-	while (s1[i] != '\0')
-	{
-		while (set[j] != '\0')
-		{
-			if (s1[i] == set[j])
-				i++;
-			j++;
-			if (j == ft_strlen(set))
-			{
-				trim[k] = s1[i];
-				k++;
-			}
-		}
-		j = 0;
-		i++;
-	}
-	return (trim);
-}
-
-static long unsigned int	occur(char const *s1, char const *set)
-{
-	int						i;
-	int						j;
-	long unsigned int		occur;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	occur = 0;
-	while (set[j] != '\0')
+	while (set[i])
 	{
-		while (s1[i] != '\0')
-		{
-			if (s1[i] == set[j])
-				occur++;
-			i++;
-		}
-		i = 0;
-		j++;
+		if (set[i] == c)
+			return (0);
+		i++;
 	}
-	return (occur);
+	return (1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
+	size_t	i;
+	size_t	len;
 	char	*trim;
 
 	i = 0;
-	trim = malloc((ft_strlen(s1) - (occur(s1, set)) + 1) * sizeof(char));
-	if (!trim)
+	if (set == NULL || s1 == NULL )
+		return (0);
+	while (comp(s1[i], set) == 0)
+		i++;
+	len = ft_strlen(s1);
+	while (comp(s1[len - 1], set) == 0)
+		len--;
+	if (i == ft_strlen(s1))
+	{
+		trim = ft_strdup("");
 		return (trim);
-	trimmer(s1, set, trim, i);
+	}
+	trim = ft_substr(s1, i, len - i);
 	return (trim);
 }

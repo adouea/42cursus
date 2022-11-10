@@ -6,13 +6,11 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:15:56 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/03 16:20:53 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/06 15:43:07 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str);
 
 char	*ft_strdup(const char *src)
 {
@@ -20,9 +18,12 @@ char	*ft_strdup(const char *src)
 	int		i;
 
 	i = 0;
-	stock = malloc((ft_strlen(src) + 1) * sizeof(char));
+	while (src[i])
+		i++;
+	stock = (char *)malloc(i + 1);
 	if (!stock)
 		return (0);
+	i = 0;
 	while (src[i])
 	{
 		stock[i] = src[i];

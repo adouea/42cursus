@@ -6,23 +6,27 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:52:16 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/03 15:03:39 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:17:30 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n);
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*mem;
-	void	*ptr;
+	size_t	i;
 
-	mem = malloc((nmemb + 1) * size);
+	i = 0;
+	if (size >= 65536 || nmemb >= 65536)
+		return (0);
+	mem = malloc((nmemb) * size);
 	if (!mem)
 		return (0);
-	ft_memset(mem, 0, nmemb);
-	ptr = &mem;
-	return (ptr);
+	while (i < (nmemb * size))
+	{
+		mem[i] = '\0';
+		i++;
+	}
+	return ((void *)mem);
 }

@@ -6,12 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:49:55 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/04 16:02:34 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/11/06 14:36:26 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
@@ -49,5 +50,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif

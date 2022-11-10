@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:34:32 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/09 17:29:04 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/18 17:23:30 by aadoue            #+#    #+#             */
+/*   Updated: 2022/11/09 16:06:36 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	char	*snew;
+	size_t	i;
+	size_t	sstart;
 
 	i = 0;
-	if (c < 0 || c > 127)
-		c = c % 256;
-	while (s[i])
-		i++;
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return (&((char *)s)[i]);
-		i--;
-	}
-	return (0);
+	sstart = start;
+	if (!s) 
+		return (NULL);
+	if (sstart >= ft_strlen((char *)s))
+		{
+			snew = ft_calloc(1, 1);
+			if (!snew)
+				return (NULL);
+			return (snew);
+		}
+	snew = ft_calloc(sizeof(char), len + 1);
+	if (!snew || len <= 0 || len > SIZE_MAX)
+		return (NULL);
+	while (i < len)
+		snew[i++] = s[start++];
+	return (snew);
 }
