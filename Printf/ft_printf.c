@@ -22,30 +22,28 @@ int	ft_printf(const char *conv, ...)
 {
 	int	len_printed;
 	va_list ptr;
-	int	i;
 
-	i = 0;
 	va_start(ptr, conv);
-	while (conv[i])
+	while (*conv)
 	{
-		if (conv[i] == "%")
+		if (*conv == "%")
 		{
-		if (conv[i + 1] == "c") one char
-			ft_putchar(va_arg(ptr, int));
-    		if (conv[i + 1] == "s") string
-    		if (conv[i + 1] == "p") void * arg in hexa
-		if (conv[i + 1] == "d") nb decimal base 10
-    		if (conv[i + 1] == "i") int base 10
-    		if (conv[i + 1] == "u") unsigned nb decimal base 10
-    		if (conv[i + 1] == "x") nb in hexa in min
-    		if (conv[i + 1] == "X") nb in hexa in MAJ
-    		if (conv[i + 1] == "%") just a %
-			{
-				ft_putchar('%');
-				i++;
-			}
+			conv++;	
+			if (*conv == "c") one char
+				ft_putchar(va_arg(ptr, int));
+    			if (*conv == "s") string
+    			if (*conv == "p") void * arg in hexa
+			if (*conv == "d") nb decimal base 10
+    			if (*conv == "i") int base 10
+    			if (*conv == "u") unsigned nb decimal base 10
+    			if (*conv == "x") nb in hexa in min
+    			if (*conv == "X") nb in hexa in MAJ
+    			if (*conv == "%") just a %
+					ft_putchar('%');
 		}
-	i++;
+		else
+			ft_putstr(*conv)
+		conv++;
 	}
 //len_printed++ at each write if loop, else len for write and len_printed
 	va_end(ptr);
