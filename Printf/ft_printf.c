@@ -30,15 +30,20 @@ int	ft_printf(const char *conv, ...)
 	{
 		if (conv[i] == "%")
 		{
-			if (conv[i + 1] == "c") one char
+		if (conv[i + 1] == "c") one char
+			ft_putchar(va_arg(ptr, int));
     		if (conv[i + 1] == "s") string
     		if (conv[i + 1] == "p") void * arg in hexa
-			if (conv[i + 1] == "d") nb decimal base 10
+		if (conv[i + 1] == "d") nb decimal base 10
     		if (conv[i + 1] == "i") int base 10
     		if (conv[i + 1] == "u") unsigned nb decimal base 10
     		if (conv[i + 1] == "x") nb in hexa in min
     		if (conv[i + 1] == "X") nb in hexa in MAJ
     		if (conv[i + 1] == "%") just a %
+			{
+				ft_putchar('%');
+				i++;
+			}
 		}
 	i++;
 	}
