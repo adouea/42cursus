@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:21:38 by aadoue            #+#    #+#             */
-/*   Updated: 2022/12/12 12:19:38 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/12/14 17:40:05 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,38 @@ int	ft_printf(const char *conv, ...)
 	va_list ptr;
 
 	va_start(ptr, conv);
+	len_printed = 0;
 	while (*conv)
 	{
 		if (*conv == "%")
 		{
 			conv++;	
 			if (*conv == "c") one char
+			{
 				ft_putchar(va_arg(ptr, int));
-    			if (*conv == "s") string
-    			if (*conv == "p") void * arg in hexa
+    			len_printed++;
+			}
+			if (*conv == "s") string
+			{
+				len_printed = len_printed + ft_strlen(conv);
+				ft_putstr(va_arg(ptr, const char*));
+			}	
+    		if (*conv == "p") void * arg in hexa
 			if (*conv == "d") nb decimal base 10
-    			if (*conv == "i") int base 10
-    			if (*conv == "u") unsigned nb decimal base 10
-    			if (*conv == "x") nb in hexa in min
-    			if (*conv == "X") nb in hexa in MAJ
-    			if (*conv == "%") just a %
-					ft_putchar('%');
+    		if (*conv == "i") int base 10
+    		if (*conv == "u") unsigned nb decimal base 10
+    		if (*conv == "x") nb in hexa in min
+    		if (*conv == "X") nb in hexa in MAJ
+    		if (*conv == "%") just a %
+			{				
+				ft_putchar('%');
+				len_printed++;
+			}
 		}
 		else
 			ft_putstr(*conv)
 		conv++;
 	}
-//len_printed++ at each write if loop, else len for write and len_printed
 	va_end(ptr);
 	return (len_printed);
 }
