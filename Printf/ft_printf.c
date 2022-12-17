@@ -13,15 +13,43 @@
 #include <stdio.h>
 #include "printf.h"
 
-static void	print()
+static void	print_integer(int n)
 {
-//print while its printable with or without conv
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+		print_integer(n / 10);
+	ft_putchar('0' + n % 10);
 }
+
+static void	print_unsigned_integer(unsigned int n)
+{
+	if (n >= 10)
+		print_unsigned_integer(n / 10);
+	ft_putchar('0' + n % 10);
+}
+
+static void	print_hexadecimal(unsigned int n, char maj)
+{
+	if (n >= 16)
+		print_hexadecimal(n / 16);
+	if (n % 16 < 10)
+		ft_putchar('0' + n % 16);
+	else
+		if (maj == 'X')
+			ft_putchar('A' + n % 16 - 10);
+		if (maj == 'x')
+			ft_putchar('a' + n % 16 - 10);
+}		
 
 int	ft_printf(const char *conv, ...)
 {
 	int	len_printed;
 	va_list ptr;
+	char	conversion;
 
 	va_start(ptr, conv);
 	len_printed = 0;
@@ -29,31 +57,43 @@ int	ft_printf(const char *conv, ...)
 	{
 		if (*conv == "%")
 		{
-			conv++;	
-			if (*conv == "c") one char
+			conversion = *(++conv); //?rm conversion and direct use of *conv ?
+			if (conversion == 'c') //one char
 			{
 				ft_putchar(va_arg(ptr, int));
-    			len_printed++;
+    				len_printed++;
 			}
-			if (*conv == "s") string
+			else if (conversion == 's') //string
 			{
 				len_printed = len_printed + ft_strlen(conv);
 				ft_putstr(va_arg(ptr, const char*));
 			}	
-    		if (*conv == "p") void * arg in hexa
-			if (*conv == "d") nb decimal base 10
-    		if (*conv == "i") int base 10
-    		if (*conv == "u") unsigned nb decimal base 10
-    		if (*conv == "x") nb in hexa in min
-    		if (*conv == "X") nb in hexa in MAJ
-    		if (*conv == "%") just a %
+    			else if (conversion == 'p') //void * arg in hexa
+			{
+				void *p = va_arg(ptr, void*);
+				ft_putstr("0x");
+				print_hexadecimal((unsigned long) p, 'x');
+			}
+			else if (conversion == 'd' || conversion == 'i') //nb decimal ou int base 10
+				print_integer(va_arg(ptr, int));
+    			else if (conversion == 'u') //unsigned nb decimal base 10
+				print_unsigned_integer(va_arg(ptr, unsigned int));
+			else if (conversion == 'x' || conversion == 'X') //nb in hexa in min/maj
+                                print_hexadecimal(va_arg(ptr, unsigned int), conversion);
+    			else if (conversion == "%") //just a %
 			{				
 				ft_putchar('%');
 				len_printed++;
 			}
+			else
+			{
+				ft_putchar('%');
+				ft_putchar(conversion);
+				len_printed = len_printed + 2;
+			}
 		}
 		else
-			ft_putstr(*conv)
+			ft_putchar(*conv)
 		conv++;
 	}
 	va_end(ptr);
