@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 13:19:16 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/25 14:04:37 by aadoue           ###   ########.fr       */
+/*   Created: 2022/12/25 14:59:56 by aadoue            #+#    #+#             */
+/*   Updated: 2022/12/25 15:05:17 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "Libft/libft.h"
+# include <unistd.h>
 # include <stdarg.h>
 
-#endif 
+int ft_printf(const char *conv, ...);
+
+#endif
+

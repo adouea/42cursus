@@ -6,12 +6,12 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:21:38 by aadoue            #+#    #+#             */
-/*   Updated: 2022/12/20 17:00:34 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/12/25 16:56:42 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "printf.h"
+//#include <stdio.h>
+#include "ft_printf.h"
 
 static int	ft_putchar_return(char c)
 {
@@ -30,6 +30,11 @@ static int	ft_putstr_return(char *s)
 	
 	i = 0;
 	retour = 0;
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (s[i])
 	{
 		retour += ft_putchar_return(s[i]);
@@ -88,7 +93,6 @@ int	ft_printf(const char *conv, ...)
 {
 	int	len_printed;
 	va_list ptr;
-	char	conversion;
 
 	va_start(ptr, conv);
 	len_printed = 0;
@@ -96,26 +100,29 @@ int	ft_printf(const char *conv, ...)
 	{
 		if (*conv == '%')
 		{
-			conversion = *(++conv); //?rm conversion and direct use of *conv ?
-			if (conversion == 'c')
+			conv++;
+			if (*conv == 'c')
 				len_printed += ft_putchar_return(va_arg(ptr, int));
-			else if (conversion == 's')
-				len_printed += ft_putstr_return(va_arg(ptr, char*));
-    		else if (conversion == 'p')
+			else if (*conv == 's')
+				len_printed += ft_putstr_return(va_arg(ptr, void*));
+    		else if (*conv == 'p')
 				{
-					len_printed += write(1, "0x", 2);			
-					len_printed += print_hexadecimal((unsigned long) va_arg(ptr, void*), 'x');
+				len_printed += write(1, "0x", 2);			
+				len_printed += print_hexadecimal((unsigned long) va_arg(ptr, void*), 'x');
 				}			
-			else if (conversion == 'd' || conversion == 'i')
+			else if (*conv == 'd' || *conv == 'i')
 				len_printed += print_integer(va_arg(ptr, int));
-    		else if (conversion == 'u')
+    		else if (*conv == 'u')
 				len_printed += print_unsigned_integer(va_arg(ptr, unsigned int));
-			else if (conversion == 'x' || conversion == 'X')
-				len_printed += print_hexadecimal(va_arg(ptr, unsigned long), conversion);
-   			else if (conversion == '%')
+			else if (*conv == 'x' || *conv == 'X')
+				len_printed += print_hexadecimal(va_arg(ptr, unsigned long), *conv);
+   			else if (*conv == '%')
 				len_printed += write(1, "%", 1);
 			else
+				{
 				len_printed += write(1, "%", 1);
+				len_printed += ft_putchar_return(*conv);
+				}
 		}
 		else
 			len_printed += ft_putchar_return(*conv);
@@ -125,18 +132,19 @@ int	ft_printf(const char *conv, ...)
 	return (len_printed);
 }
 
-int	main ()
-{
-	//char c[100];
-	ft_printf("%X", 10);
-	//printf("%i\n", printf("%i\n", -5));
-	return (0);
-}
+//int	main ()
+//{
+//	//char c[100];
+//	printf("%i\n", ft_printf("%s", (void*)0));
+//	//printf("\n");
+//	printf("%i\n", printf("%s", (void*)0));
+//	return (0);
+//}
 
-gestion des erreurs :
-invalid format specifiers = %f ou %l... = print("Error: invalid format specifier\n")
-insufficient arguments = ("%d%d", 10)... = print("Error: insufficient arguments\n")
-output failure = if return is < 0 so failure to print (stdout closed ?) = print("Error: output failure\n"invalid args = NULL pointer as a string (char *str = NULL, printf("%s", str)) = Print("Error: invalid argument\n") , same using case as previous with the return value
+//gestion des erreurs :
+//invalid format specifiers = %f ou %l... = print("Error: invalid format specifier\n")
+//insufficient arguments = ("%d%d", 10)... = print("Error: insufficient arguments\n")
+//output failure = if return is < 0 so failure to print (stdout closed ?) = print("Error: output failure\n"invalid args = NULL pointer as a string (char *str = NULL, printf("%s", str)) = Print("Error: invalid argument\n") , same using case as previous with the return value
 
 //https://www.gnu.org/software/libc/manual/html_node/Why-Variadic.html
 //https://github.com/paulo-santana/ft_printf_tester
