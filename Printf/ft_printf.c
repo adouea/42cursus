@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:21:38 by aadoue            #+#    #+#             */
-/*   Updated: 2022/12/26 17:27:53 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/12/27 15:50:59 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,19 @@ static int	print_unsigned_integer(unsigned int n)
 	return (count);
 }
 
-static int	print_hexadecimal(unsigned long n, char maj, int zero, char p)
+static int	print_hexadecimal(unsigned long n, char maj, char p)
 {
 	if (n == 0 && p == 'p')
 	{
 		count += write(1, "(nil)", 5);
 		return (count);
 	}
-	if (zero == 0 && n < 16)
+	while (n > 4294967295 && p != 'p')
+		n = n % 4294967296;
+	if (p == 'p' && n < 16)
 		count += write(1, "0x", 2);
 	if (n >= 16)
-		print_hexadecimal((n / 16), maj, zero, p);
+		print_hexadecimal((n / 16), maj, p);
 	if (n % 16 < 10)
 		ft_putchar_return('0' + n % 16);
 	else
@@ -102,19 +104,19 @@ int	ft_printf(const char *conv, ...)
 			else if (*conv == 's')
 				ft_putstr_return(va_arg(ptr, void*));
     		else if (*conv == 'p')
-					print_hexadecimal((unsigned long) va_arg(ptr, void*), 'x', 0, *conv);
+				print_hexadecimal(va_arg(ptr, unsigned long), 'x', 'l');
 			else if (*conv == 'd' || *conv == 'i')
 				print_integer(va_arg(ptr, int));
     		else if (*conv == 'u')
 				print_unsigned_integer(va_arg(ptr, unsigned int));
 			else if (*conv == 'x' || *conv == 'X')
-				print_hexadecimal(va_arg(ptr, unsigned long), *conv, 1, *conv);
+				print_hexadecimal(va_arg(ptr, unsigned long), conv[0], 'z');
    			else if (*conv == '%')
 				count += write(1, "%", 1);
 			else
 				{
-				count += write(1, "%", 1);
-				ft_putchar_return(*conv);
+					count += write(1, "%", 1);
+					ft_putchar_return(*conv);
 				}
 		}
 		else
@@ -127,12 +129,14 @@ int	ft_printf(const char *conv, ...)
 
 int	main ()
 {
-	//char c[100];
-	printf("%i\n", ft_printf(" %x ", 4294967296));
-	//printf("\n");
-	printf("%i\n", printf(" %x ", 4294967296));
+	printf("%i\n", ft_printf(" %x %x %x %x %x %x %x", 0, 16, 32, LONG_MIN, ULONG_MAX, 64, -42));
+//	printf("%i\n", ft_printf(" %x %x %x %x %x %x ", 1, 1, 1, 1, 1, 1, 1));
+//	printf("%i\n", printf(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	return (0);
 }
+
+
+
 
 //gestion des erreurs :
 //invalid format specifiers = %f ou %l... = print("Error: invalid format specifier\n")
