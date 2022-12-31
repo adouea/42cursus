@@ -6,13 +6,13 @@
 #    By: aadoue <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 16:21:55 by aadoue            #+#    #+#              #
-#    Updated: 2022/12/25 14:57:47 by aadoue           ###   ########.fr        #
+#    Updated: 2022/12/31 14:58:44 by aadoue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-FILES = ft_printf.c
+FILES = ft_printf.c ft_printers.c ft_numlens.c
 
 OBJS = $(FILES:.c=.o)
 

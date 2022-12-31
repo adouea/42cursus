@@ -6,134 +6,129 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:21:38 by aadoue            #+#    #+#             */
-/*   Updated: 2022/12/27 15:50:59 by aadoue           ###   ########.fr       */
+/*   Updated: 2022/12/31 16:48:54 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdio.h>
+//#include <limits.h>
+//#include <stdio.h>
 #include "ft_printf.h"
 
-static int count = 0;
-
-static int	ft_putchar_return(char c)
+static int	print_hexa_min(unsigned long long n, char p)
 {
-	count += write(1, &c, 1);
-	return (count);
-}
+	int	count;
 
-static int	ft_putstr_return(char *s)
-{
-	int	i;
-	
-	i = 0;
-	if (!s)
+	count = 0;
+	if (p != 'p')
 	{
-		count += write(1, "(null)", 6);
-		return (count);
+		while (n > 4294967295)
+			n = n % 4294967296;
 	}
-	while (s[i])
-	{
-		ft_putchar_return(s[i]);
-		i++;
-	}
+	if (n >= 16)
+		print_hexa_min(n / 16, p);
+	if (n % 16 < 10)
+		print_char('0' + n % 16);
+	else
+		print_char('a' + n % 16 - 10);
+	count += unumlen(n, 16);
 	return (count);
 }
 
-static int	print_integer(int n)
+static int	print_hexa_maj(unsigned long long n)
 {
-	long	nb;
+	int	count;
 
-	nb = n;
-	if (nb < 0)
-	{
-		ft_putchar_return('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		print_integer(nb / 10);
-	ft_putchar_return('0' + nb % 10);
+	count = 0;
+	while (n > 4294967295)
+		n = n % 4294967296;
+	if (n >= 16)
+		print_hexa_maj(n / 16);
+	if (n % 16 < 10)
+		print_char('0' + n % 16);
+	else
+		print_char('A' + n % 16 - 10);
+	count += unumlen(n, 16);
 	return (count);
 }
 
-static int	print_unsigned_integer(unsigned int n)
-{
-	if (n >= 10)
-		print_unsigned_integer(n / 10);
-	ft_putchar_return('0' + n % 10);
-	return (count);
-}
+static int  print_0x(unsigned long long p)
+{  
+	int	count;
 
-static int	print_hexadecimal(unsigned long n, char maj, char p)
-{
-	if (n == 0 && p == 'p')
+	count = 0; 
+	if (p == 0)
 	{
 		count += write(1, "(nil)", 5);
 		return (count);
 	}
-	while (n > 4294967295 && p != 'p')
-		n = n % 4294967296;
-	if (p == 'p' && n < 16)
-		count += write(1, "0x", 2);
-	if (n >= 16)
-		print_hexadecimal((n / 16), maj, p);
-	if (n % 16 < 10)
-		ft_putchar_return('0' + n % 16);
-	else
-	{
-		if (maj == 'X')
-			ft_putchar_return('A' + n % 16 - 10);
-		if (maj == 'x')
-			ft_putchar_return('a' + n % 16 - 10);
-	}
+	count += write(1, "0x", 2);
+	count += print_hexa_min(p, 'p');
 	return (count);
+}
+
+
+static int	prism(va_list lst, const char args, int len_printed)
+{
+	if (args == 'c')
+		len_printed += print_char(va_arg(lst, int));
+	else if (args == 's')
+		len_printed += print_str(va_arg(lst, char *));
+	else if (args == 'p')
+		len_printed += print_0x(va_arg(lst, unsigned long long));
+	else if (args == 'd' || args == 'i')
+		len_printed += print_int(va_arg(lst, int));
+	else if (args == 'u')
+		len_printed += print_uint(va_arg(lst, unsigned int));
+	else if (args == 'x')
+		len_printed += print_hexa_min(va_arg(lst, unsigned long long), 'z');
+	else if (args == 'X')
+		len_printed += print_hexa_maj(va_arg(lst, unsigned long long));
+	else if (args == '%')
+		len_printed += write(1, "%", 1);
+	else
+	{   
+		len_printed += write(1, "%", 1);
+		len_printed += print_char(args);
+	}
+	return (len_printed);
 }		
 
-int	ft_printf(const char *conv, ...)
+int	ft_printf(const char *args, ...)
 {
-	va_list ptr;
+	va_list	lst;
+	int		len_printed;
+	int		stock;
 	
-	va_start(ptr, conv);
-	while (*conv)
+	len_printed = 0;
+	va_start(lst, args);
+	while (*args)
 	{
-		if (*conv == '%')
+		if (*args == '%')
 		{
-			conv++;
-			if (*conv == 'c')
-				ft_putchar_return(va_arg(ptr, int));
-			else if (*conv == 's')
-				ft_putstr_return(va_arg(ptr, void*));
-    		else if (*conv == 'p')
-				print_hexadecimal(va_arg(ptr, unsigned long), 'x', 'l');
-			else if (*conv == 'd' || *conv == 'i')
-				print_integer(va_arg(ptr, int));
-    		else if (*conv == 'u')
-				print_unsigned_integer(va_arg(ptr, unsigned int));
-			else if (*conv == 'x' || *conv == 'X')
-				print_hexadecimal(va_arg(ptr, unsigned long), conv[0], 'z');
-   			else if (*conv == '%')
-				count += write(1, "%", 1);
-			else
-				{
-					count += write(1, "%", 1);
-					ft_putchar_return(*conv);
-				}
+			stock = 0;
+			if (*++args == '\0')
+				return (-1);
+			stock += prism(lst, *args, len_printed);
+			len_printed = stock;  
 		}
 		else
-			ft_putchar_return(*conv);
-		conv++;
+			len_printed += print_char(*args);
+		args++;
 	}
-	va_end(ptr);
-	return (count);
+	va_end(lst);
+	return (len_printed);
 }
 
-int	main ()
-{
-	printf("%i\n", ft_printf(" %x %x %x %x %x %x %x", 0, 16, 32, LONG_MIN, ULONG_MAX, 64, -42));
+//int	main ()
+//{
+//	printf("\n%i\n", ft_printf(" %x ", 4294967296));
+//	printf("\n%i\n", printf(" %x ", 4294967296));
+//
+//	printf("%i\n", ft_printf(" %x %x %x %x %x %x %x", 0, 16, 32, LONG_MIN, ULONG_MAX, 64, -42));
 //	printf("%i\n", ft_printf(" %x %x %x %x %x %x ", 1, 1, 1, 1, 1, 1, 1));
 //	printf("%i\n", printf(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
-	return (0);
-}
+//	return (0);
+//}
 
 
 

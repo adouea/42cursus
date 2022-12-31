@@ -1,0 +1,55 @@
+void limited_printf_string(const char *s) {
+    int line_count = 0;
+    while (*s) {
+        if (*s == '\n') {
+            ++line_count;
+            if (line_count == MAX_LINES) {
+                return;
+            }
+        }
+        putchar(*s);
+        ++s;
+    }
+}
+
+void limited_printf_char(char c) {
+    putchar(c);
+}
+
+void limited_printf_hex(unsigned int n, int maj) {
+    static const char hex_digits[] = "0123456789abcdef";
+    char buf[9];
+    char *p = buf;
+    do {
+        *p++ = hex_digits[n % 16];
+        n /= 16;
+    } while (n > 0);
+    while (p > buf) {
+        limited_printf_char(*--p);
+    }
+}
+
+void limited_printf_pointer(void *p) {
+    limited_printf_char('0');
+    limited_printf_char('x');
+    limited_printf_hex((unsigned int)p, 0);
+}
+
+void limited_printf_dec(int n) {
+    if (n < 0) {
+        limited_printf_char('-');
+        limited_printf_dec(-n);
+        return;
+    }
+    if (n >= 10) {
+        limited_printf_dec(n / 10);
+    }
+    limited_printf_char('0' + n % 10);
+}
+
+void limited_printf_uint(unsigned int n) {
+    if (n >= 10) {
+        limited_printf_uint(n / 10);
+    }
+    limited_printf_char('0' + n % 10);
+}
