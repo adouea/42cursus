@@ -6,27 +6,31 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:56:17 by aadoue            #+#    #+#             */
-/*   Updated: 2023/01/03 13:11:22 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/01/03 16:31:30 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <unistd.h>
 
-int	ft_unumlen(unsigned long long n, int base);
+int					ft_unumlen(unsigned long long n, int base);
+
+unsigned long long	ft_strlen(const char *s);
 
 int	ft_print_uint_hexa(unsigned long long n, const char *base)
 {
-	int	count;
+	unsigned long long	base_len;
+	int					count;
 
 	count = 0;
-	if (n >= 16)
+	base_len = ft_strlen(base);
+	if (n >= base_len)
 	{
-		ft_print_uint_hexa(n / 16, base);
-		ft_print_uint_hexa(n % 16, base);
+		ft_print_uint_hexa(n / base_len, base);
+		ft_print_uint_hexa(n % base_len, base);
 	}
 	else
 		write(1, &base[n], 1);
-	count += ft_unumlen(n, 16);
+	count += ft_unumlen(n, base_len);
 	return (count);
 }

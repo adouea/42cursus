@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 17:24:15 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/04 14:36:20 by aadoue           ###   ########.fr       */
+/*   Created: 2022/10/12 13:07:51 by aadoue            #+#    #+#             */
+/*   Updated: 2022/11/07 16:56:50 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "printf.h"
+
+unsigned long long	ft_strlen(const char *s)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1024);
-	else
-		return (0);
+	unsigned long long	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
