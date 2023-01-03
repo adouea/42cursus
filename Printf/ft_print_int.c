@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlens.c                                       :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/31 14:47:12 by aadoue            #+#    #+#             */
-/*   Updated: 2022/12/31 14:55:03 by aadoue           ###   ########.fr       */
+/*   Created: 2023/01/03 12:51:59 by aadoue            #+#    #+#             */
+/*   Updated: 2023/01/03 13:07:48 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	numlen(long long n, int base)
+int	ft_print_int(long long n)
 {
-	int	i;
+	int	count;
 
-	i = 1;
-	while (n >= ((long long) base))
+	count = 0;
+	if (n < 0)
 	{
-		n /= base;
-		i++;
+		count += ft_print_char('-');
+		n = -n;
 	}
-	return (i);
-}
-
-int	unumlen(unsigned long long n, int base)
-{
-	int	i;
-
-	i = 1;
-	while (n >= (unsigned long long) base)
-	{
-		n /= base;
-		i++;
-	}
-	return (i);
+	if (n >= 10)
+		ft_print_int(n / 10);
+	ft_print_char('0' + n % 10);
+	count += ft_numlen(n, 10);
+	return (count);
 }

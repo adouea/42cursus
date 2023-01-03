@@ -6,7 +6,7 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:21:38 by aadoue            #+#    #+#             */
-/*   Updated: 2023/01/03 14:27:25 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/01/03 13:39:20 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,58 +52,60 @@
 	return (count);
 }*/
 
-static int	prism(va_list lst, const char args)
+static int	prism(va_list lst, const char args, int len_printed)
 {
-	unsigned long	ptr;
-
 	if (args == 'c')
-		return (ft_print_char(va_arg(lst, int)));
+		len_printed += ft_print_char(va_arg(lst, int));
 	else if (args == 's')
-		return (ft_print_str(va_arg(lst, char *)));
+		len_printed += ft_print_str(va_arg(lst, char *));
 	else if (args == 'p')
-	{
-		ptr = va_arg(lst, unsigned long);
-		if (ptr)
-			return (ft_print_hexa_u(va_arg(lst, unsigned long long), args));
-		return (ft_print_str("(nil)"));
-	}
+		len_printed += ft_print_head(va_arg(lst, unsigned long long));
 	else if (args == 'd' || args == 'i')
-		return (ft_print_int(va_arg(lst, int)));
+		len_printed += ft_print_int(va_arg(lst, int));
 	else if (args == 'u')
-		return (ft_print_uint(va_arg(lst, unsigned int)));
-	else if (args == 'x' || args == 'X')
-		return (ft_print_hexa_u(va_arg(lst, unsigned long long), args));
+		len_printed += ft_print_uint(va_arg(lst, unsigned int));
+	else if (args == 'x')
+		len_printed += ft_print_hexa_min(va_arg(lst, unsigned long long));
+	else if (args == 'X')
+		len_printed += ft_print_hexa_maj(va_arg(lst, unsigned long long));
 	else if (args == '%')
-		return (ft_print_char('%'));
+		len_printed += write(1, "%", 1);
 	else
-		return (-1);
+	{   
+		len_printed += write(1, "%", 1);
+		len_printed += ft_print_char(args);
+	}
+	return (len_printed);
 }		
 
 int	ft_printf(const char *args, ...)
 {
 	va_list	lst;
 	int		len_printed;
-	int		i;
+	int		stock;
 	
 	len_printed = 0;
-	i = 0;
 	va_start(lst, args);
-	while (args[i])
+	while (*args)
 	{
-		if (args[i] == '%' && ft_strchr("cspdiuxX%", args[i + 1]) != 0)
+		if (*args == '%')
 		{
-			len_printed += prism(lst, args[i + 1]);
-			i++;
+			stock = 0;
+			if (*++args == '\0')
+				return (-1);
+			stock += prism(lst, *args, len_printed);
+			len_printed = stock;  
 		}
 		else
-			len_printed += ft_print_char(args[i]);
-		i++;
+			len_printed += ft_print_char(*args);
+		args++;
 	}
 	va_end(lst);
 	return (len_printed);
 }
 
-/*int	main ()
+/*
+int	main ()
 {
 
 	printf("\n%i\n", ft_printf("%x", 1254));
