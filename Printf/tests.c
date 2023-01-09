@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <limits.h>
+
 int main(void)
 {
     int        nbr;
@@ -18,3 +20,8 @@ int main(void)
 	printf("%i\n", ft_printf(" %x %x %x %x %x %x ", 1, 1, 1, 1, 1, 1, 1));
 	printf("%i\n", printf(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 
+
+//Testers_list:
+
+	- tripouille (printf_tester)
+	- paulo santana	(ft_printf_tester)

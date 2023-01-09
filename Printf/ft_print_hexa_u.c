@@ -10,12 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <unistd.h>
-
-int	ft_print_uint_hexa(unsigned long long n, const char *base);
-
-int	ft_unumlen(unsigned long long n, int base);
+#include "ft_printf.h"
 
 int	ft_print_hexa_u(unsigned long long n, char format)
 {

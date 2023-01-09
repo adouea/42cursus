@@ -16,7 +16,7 @@ FILES = ft_printf.c ft_strlen.c ft_print_char.c ft_print_str.c ft_print_int.c ft
  
 OBJS = $(FILES:.c=.o)
 
-CC = cc
+CC = clang
 RM = rm -f
 LIB = ar rc
 CFLAGS = -Werror -Wall -Wextra
