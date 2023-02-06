@@ -1,0 +1,4 @@
+last sha1sum of B2BR.vdi : bc77e1e00a3827d6c24a78945779ed58e514b2f9
+
+
+os : last debian
