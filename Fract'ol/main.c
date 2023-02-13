@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 13:07:51 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/07 16:56:50 by aadoue           ###   ########.fr       */
+/*   Created: 2023/02/13 16:38:05 by aadoue            #+#    #+#             */
+/*   Updated: 2023/02/13 16:39:46 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	main(int argc, char *argv)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	if (argc != 2)
+		return (error ou null);
+	return (0);
 }
+
+
+/*
+fractoling
+
+
+
+
+
+*/

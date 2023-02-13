@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 16:38:55 by aadoue            #+#    #+#             */
-/*   Updated: 2023/02/07 14:40:39 by aadoue           ###   ########.fr       */
+/*   Created: 2023/02/07 15:32:30 by aadoue            #+#    #+#             */
+/*   Updated: 2023/02/07 15:33:52 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_readed_line(char *start)
 {
@@ -72,7 +72,7 @@ char	*get_next_line(int fd)
 {
 	int			read_return;
 	char		*next_line;
-	static char	*start;
+	static char	*start[1024] = {NULL};
 
 	if (fd < 0 || fd > 1023 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -80,7 +80,7 @@ char	*get_next_line(int fd)
 	next_line = (char *)malloc(BUFFER_SIZE + 1);
 	if (!next_line)
 		return (NULL);
-	while (!(ft_strchr(start, '\n')) && read_return != 0)
+	while (!(ft_strchr(start[fd], '\n')) && read_return != 0)
 	{
 		read_return = read(fd, next_line, BUFFER_SIZE);
 		if (read_return == -1)
@@ -89,10 +89,10 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		next_line[read_return] = '\0';
-		start = ft_joinprep(start, next_line);
+		start[fd] = ft_joinprep(start[fd], next_line);
 	}
 	free(next_line);
-	next_line = ft_readed_line(start);
-	start = ft_new_start(start);
+	next_line = ft_readed_line(start[fd]);
+	start[fd] = ft_new_start(start[fd]);
 	return (next_line);
 }
