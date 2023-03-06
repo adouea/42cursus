@@ -6,13 +6,13 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:15:56 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/06 15:43:07 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/02/28 14:29:57 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(char *src)
 {
 	char	*stock;
 	int		i;
