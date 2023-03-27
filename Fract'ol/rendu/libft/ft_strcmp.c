@@ -6,16 +6,20 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 10:05:00 by aadoue            #+#    #+#             */
-/*   Updated: 2022/06/16 11:35:53 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/03/08 13:26:05 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] == s2[i] && (s1[i] || s2[i]))
+	while (s1[i] || s2[i])
+	{
+		if (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i] != 0)
+			return (-1);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }

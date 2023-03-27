@@ -6,7 +6,7 @@
 #    By: aadoue <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 15:54:31 by aadoue            #+#    #+#              #
-#    Updated: 2023/02/17 16:25:14 by aadoue           ###   ########.fr        #
+#    Updated: 2023/03/08 13:32:00 by aadoue           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,21 +27,21 @@ PRINTF_DIR = ft_printf
 
 #Headers
 
-HDRS = $(addprefix $(HDRS_DIR)/, complex.h fractol.h utils.h)
+HDRS = $(addprefix $(HDRS_DIR)/, keys.h fractol.h)
 MLX_HDRS = $(addprefix $(MLX_DIR)/, mlx.h)
 LIBFT_HDRS = $(addprefix $(LIBFT_DIR)/, libft.h)
 PRINTF_HDRS = $(addprefix $(PRINTF_DIR)/, ft_printf.h)
 
 #Files
 
-SRCS = $(addprefix $(SRCS_DIR)/, draw.c complex.c events.c fractol.c utils.c)
+SRCS = $(addprefix $(SRCS_DIR)/, fractol.c draw.c keys.c mandelbrot.c julia.c burningship.c)
 OBJS = $(SRCS:.c=.o)
 
 #Actions
 
 CC = clang
-CFLAGS = -Werror -Wall -Wextra
-GCC = $(CC) $(FLAGS)
+CFLAGS = -Werror -Wall -Wextra -g
+GCC = $(CC) $(CFLAGS)
 
 #Rules
 
@@ -64,7 +64,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	cd $(MLX_DIR) && $(MAKE) fclean
+	cd $(MLX_DIR) && $(MAKE) clean
 	cd $(LIBFT_DIR) && $(MAKE) fclean
 	cd $(PRINTF_DIR) && $(MAKE) fclean
 

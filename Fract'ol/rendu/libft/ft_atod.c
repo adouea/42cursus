@@ -1,74 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 13:00:14 by aadoue            #+#    #+#             */
-/*   Updated: 2023/02/27 13:18:39 by aadoue           ###   ########.fr       */
+/*   Created: 2023/03/08 13:30:07 by aadoue            #+#    #+#             */
+/*   Updated: 2023/03/08 13:39:30 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/utils.h"
+#include "libft.h"
 
-void	clean_and_exit(int exit_code, t_data *data)
-{
-	if (data->img)
-		mlx_destroy_image(data->mlx, data->img);
-	if (data->win)
-		mlx_destroy_window(data->mlx, data->win);
-	free(data);
-	exit(exit_code);	
-}
-
-int		cmp_strings(char *s1, char *s2)
-{
-	size_t	s1_len;
-
-	if(!s1 || !s2)
-		return (1);
-	s1_len = ft_strlen(s1);
-	if (s1_len != ft_strlen(s2))
-		return (1);
-	return (ft_strncmp(s1, s2, s1_len));
-}
-
-int		is_number(char *s)
-{
-	int	dots;
-
-	if (!s)
-		return (0);
-	dots = 0;
-	if (*s == '-')
-		s++;
-	while (*s)
-	{
-		if (ft_isdigit(*s))
-		{
-			s++;
-			continue ;
-		}
-		if (*s == '.')
-			dots++;
-		else
-			return (0);
-		if (dots > 1)
-			return (0);
-		s++;
-	}
-	return (1);
-}
-
-double	atod(char *s)
+double	ft_atod(char *s)
 {
 	int		zeros;
 	char	*dot;
-	double 	left;
+	double	left;
 	double	right;
 
-	if(!s)
+	if (!s)
 		return (0.0);
 	left = ft_atoi(s);
 	dot = ft_strchr(s, '.');
