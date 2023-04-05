@@ -1,0 +1,55 @@
+** atoi safe to manage overflows :
+
+Pour rendre le tout plus lisible : un typedef pour err_flag, un paquet de defines, une table statique (err_flag flag, char *err_msg) et vous utilisez le tout comme ça :
+
+int ft_err(err_flag flag)
+{
+  static err_table = {
+     (ERR_ATOI_OVERFLOW, "Error : input includes numbers greater than ints"),
+     (ERR_AV_BAD_CHAR, "Error: input includes characters that aren't numbers")
+      ...
+  };
+  write(STDERR, err_table[flag], ft_strlen(err_table[flag]);
+  return (flag);
+}
+
+main(char **av, int ac) {
+  int err_flag = NO_ERR;
+  int nb = atoi(av[1], &err_flag);
+  if (err_flag != NO ERR) return (1);
+}
+
+int ft_atoi_safe(char *str, int &err_flag)
+{
+    long nb;
+    int sign;
+    ... main loop {
+      nb *= 10 + (str[i] - '0');
+      if ((sign == 1 && nb > INT_MAX) || (sign == -1 && nb > INT_MAX + 1))
+      {
+        *flag = ERR_OVERLOW;
+        return 0;
+      }
+    }
+  ...
+  return nb;
+}
+
+
+
+** testing :
+
+https://gitlab.com/hydrasho/push_swap-testeur-max
+https://github.com/Pixailz/push_swap_tester
+
+How to give n int aleatoires en entree :
+ARG=$(seq borne-min borne_max | shuf -n nb-element | tr '\n' ' ');
+./push_swap $ARG
+
+3/5/100/500 tests in evaluation
+
+
+
+*** resources :
+
+https://medium.com/@ayogun/push-swap-c1f5d2d41e97
