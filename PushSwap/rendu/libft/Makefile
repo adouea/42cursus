@@ -1,39 +1,72 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aadoue <marvin@42.fr>                      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/06 16:21:55 by aadoue            #+#    #+#              #
-#    Updated: 2023/03/15 15:46:52 by aadoue           ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: fra <fra@student.42.fr>                      +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/10/14 18:27:31 by anonymous     #+#    #+#                  #
+#    Updated: 2023/03/22 03:10:54 by fra           ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+SHELL := /bin/bash
 
-FILES = ft_isprint.c ft_putendl_fd.c ft_strlcat.c ft_substr.c ft_atoi.c ft_itoa.c ft_putnbr_fd.c ft_strlcpy.c ft_tolower.c ft_bzero.c ft_memchr.c ft_putstr_fd.c ft_strlen.c ft_toupper.c ft_calloc.c ft_memcmp.c ft_split.c ft_strmapi.c ft_isalnum.c ft_memcpy.c ft_strchr.c ft_strncmp.c ft_isalpha.c ft_memmove.c ft_strdup.c ft_strnstr.c ft_isascii.c ft_memset.c ft_striteri.c ft_strrchr.c ft_isdigit.c ft_putchar_fd.c ft_strjoin.c ft_strtrim.c ft_strcmp.c ft_atod.c ft_atof.c ft_isspace.c
+NAME := libft.a
+SRC_DIR := sources
+OBJ_DIR := objects
+INCLUDE  := includes
 
-OBJS = $(FILES:.c=.o)
+HEADERS := $(shell find $(INCLUDE) -type f -name '*.h')
+SOURCES := $(shell find $(SRC_DIR) -type f -name '*.c')
+OBJECTS := $(patsubst $(SRC_DIR)%,$(OBJ_DIR)%,$(SOURCES:.c=.o))
 
-CC = cc
-RM = rm -f
-LIB = ar rc
-CFLAGS = -Werror -Wall -Wextra
+CC  := clang
+IFLAGS := -I $(INCLUDE)
+CFLAGS  := -Wall -Wextra -Werror -g
+LFLAGS  := -rcs
+
+GREEN = \x1b[32;01m
+RED = \x1b[31;01m
+BLUE = \x1b[34;01m
+RESET = \x1b[0m
+YELLOW = \x1b[33;01m
 
 all: $(NAME)
-	
-$(OBJS):
-	$(CC) $(CFLAGS) -c $(FILES) 	
 
-$(NAME): $(OBJS)
-	$(LIB) $(NAME) $(OBJS)
+$(NAME): $(OBJ_DIR) $(OBJECTS) $(HEADERS)
+	@ar $(LFLAGS) $(NAME) $(OBJECTS)
+	@printf "(libft) $(YELLOW)Created archive $(NAME)$(RESET)\n"
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(IFLAGS) -c $^ -o $@
+	@printf "(libft) $(BLUE)Created object $$(basename $@)$(RESET)\n"
 
 clean:
-	$(RM) $(OBJS)
+	@for file in $(shell find $(OBJ_DIR) -type f -name '*.o'); do \
+		rm -f $$file;	\
+		printf "(libft) $(RED)Removed object $$(basename $$file)$(RESET)\n"; \
+	done
+	@for file in $(shell find $(OBJ_DIR) -type d); do \
+		rm -rf $$file;	\
+		printf "(libft) $(RED)Removed object $$(basename $$file)$(RESET)\n"; \
+	done
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	@for file in $(shell find $(OBJ_DIR) -type f -name '*.o'); do \
+		rm -f $$file;	\
+		printf "(libft) $(RED)Removed object $$(basename $$file)$(RESET)\n"; \
+	done
+	@for file in $(shell find $(OBJ_DIR) -type d); do \
+		rm -rf $$file;	\
+		printf "(libft) $(RED)Removed object $$(basename $$file)$(RESET)\n"; \
+	done
+	@-rm -f $(NAME)
+	@printf "(libft) $(RED)Removing $(NAME)$(RESET)\n"
 
 re: fclean all
 

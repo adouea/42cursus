@@ -6,63 +6,47 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 15:26:12 by aadoue            #+#    #+#             */
-/*   Updated: 2022/11/09 18:48:51 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/04/09 18:09:21 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-static size_t	lines_count(char const *s, char c)
+static size_t	len_substr(char const *str, char char_split)
 {
-	size_t	lines;
-	size_t	i;
+	size_t	length;
 
-	lines = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-			lines++;
-		while (s[i] && s[i] != c)
-			i++;
-	}
-	return (lines);
+	length = 0;
+	while (*str && *str++ != char_split)
+		length++;
+	return (length);
 }
 
-static size_t	ft_jump(char const *s, char c, size_t jump)
+char	**ft_split(char const *str, char split)
 {
-	if (!ft_strchr(s, c))
-		jump = ft_strlen(s);
-	else
-		jump = ft_strchr(s, c) - s;
-	return (jump);
-}
+	char	**matrix;
+	char	*sub_str;
+	size_t	index;
 
-char	**ft_split(char const *s, char c)
-{	
-	size_t	j;
-	size_t	jump;
-	char	**tab;
-
-	j = 0;
-	if (!s)
+	index = 0;
+	if (! str)
 		return (NULL);
-	tab = ft_calloc(sizeof(char *), (lines_count(s, c) + 1));
-	if (!tab)
-		return (NULL);
-	while (*s)
+	matrix = malloc ((ft_n_substr(str, split) + 1) * sizeof(char *));
+	if (! matrix)
+		ft_raise_error("(ft_split) Memory error", 0);
+	while (matrix && *str)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
+		if (*str != split)
 		{
-			jump = ft_jump(s, c, jump);
-			tab[j] = ft_substr(s, 0, jump);
-			j++;
-			s += jump;
+			sub_str = ft_substr(str, 0, len_substr(str, split));
+			if (! sub_str)
+				return (ft_free_double((void ***) &matrix, index));
+			matrix[index++] = sub_str;
+			str += ft_strlen(sub_str) - 1;
 		}
+		str++;
 	}
-	return (tab);
+	if (matrix)
+		matrix[index] = 0;
+	return (matrix);
 }

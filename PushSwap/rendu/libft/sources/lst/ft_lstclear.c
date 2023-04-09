@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/10 03:05:44 by anonymous     #+#    #+#                 */
-/*   Updated: 2023/03/20 00:28:15 by fra           ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/09 16:19:36 by aadoue            #+#    #+#             */
+/*   Updated: 2023/04/09 16:20:11 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

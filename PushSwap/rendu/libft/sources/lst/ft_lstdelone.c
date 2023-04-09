@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mod.c                                           :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 17:38:53 by aadoue            #+#    #+#             */
-/*   Updated: 2023/04/09 17:38:56 by aadoue           ###   ########.fr       */
+/*   Created: 2023/04/09 16:20:51 by aadoue            #+#    #+#             */
+/*   Updated: 2023/04/09 16:21:31 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_mod(long number)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (number < 0)
-		number *= -1;
-	return (number);
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

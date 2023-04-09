@@ -6,50 +6,36 @@
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 17:27:07 by aadoue            #+#    #+#             */
-/*   Updated: 2023/04/08 17:27:16 by aadoue           ###   ########.fr       */
+/*   Updated: 2023/04/09 18:05:37 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	to_lower(char c)
+#include "libft.h"
+//#include <stdio.h>
+
+int	ft_atoi_base(const char *str, int str_base)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
-	return (c);
-}
+	int	result;
+	int	digit;
 
-int get_digit(char c, int digits_in_base)
-{
-	int max_digit;
-	if (digits_in_base <= 10)
-		max_digit = digits_in_base + '0';
-	else
-		max_digit = digits_in_base - 10 + 'a';
-
-	if (c >= '0' && c <= '9' && c <= max_digit)
-		return (c - '0');
-	else if (c >= 'a' && c <= 'f' && c <= max_digit)
-		return (10 + c - 'a');
-	else
-		return (-1);
-}
-
-int ft_atoi_base(const char *str, int str_base)
-{
-	int result = 0;
-	int sign = 1;
-	int digit;
-
-	if (*str == '-')
+	result = 0;
+	digit = 0;
+	while (*str != '\0')
 	{
-		sign = -1;
-		++str;
-	}
-
-	while ((digit = get_digit(to_lower(*str), str_base)) >= 0)
-	{
-		result = result * str_base;
-		result = result + (digit * sign);
-		++str;
+		digit = *str - '0';
+		if (digit < 0 || digit >= str_base)
+			break ;
+		result = result * str_base + digit;
+		str++;
 	}
 	return (result);
 }
+
+/*
+int main() {
+    char *hex_string = "1A";
+    int result = atoi_base(hex_string, 16);
+    printf("%d\n", result);
+    return 0;
+}
+*/

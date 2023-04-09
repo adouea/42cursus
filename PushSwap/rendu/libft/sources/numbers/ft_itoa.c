@@ -10,56 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static char	*n_to_str(long int stock, long int size)
-{
-	long int	stock2;
-	char		*str;
-
-	str = ft_calloc(sizeof(char), 1 + size);
-	if (!str)
-		return (NULL);
-	if (stock < 0)
-	{
-		str[0] = '-';
-		stock = stock * -1;
-	}
-	str[size--] = '\0';
-	while (stock != 0)
-	{
-		stock2 = stock % 10;
-		stock = stock / 10;
-		str[size] = stock2 + '0';
-		size--;
-	}
-	return (str);
-}
+#include"libft.h"
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	long int	stock;
-	long int	size;
+	char	*str_nbr;
+	long	l_n;
+	size_t	n_digits;
 
-	stock = (long int)n;
-	size = 0;
-	str = NULL;
-	if (n == 0)
+	l_n = (long) n;
+	if (n < 0)
+		l_n *= -1;
+	n_digits = ft_nbrlen(l_n, 10) + (n < 0);
+	str_nbr = (char *) malloc(n_digits + 1);
+	if (! str_nbr)
+		return (NULL);
+	str_nbr[n_digits--] = '\0';
+	while (l_n != 0)
 	{
-		str = ft_calloc(sizeof(char), 2);
-		str[0] = '0';
-		str[1] = '\0';
-		return (str);
+		str_nbr[n_digits--] = l_n % 10 + '0';
+		l_n /= 10;
 	}
 	if (n < 0)
-		size++;
-	while (stock != 0)
-	{
-		size++;
-		stock = stock / 10;
-	}
-	stock = n;
-	str = n_to_str(stock, size);
-	return (str);
+		str_nbr[n_digits] = '-';
+	else if (n == 0)
+		str_nbr[n_digits] = '0';
+	return (str_nbr);
 }

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mod.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 17:38:53 by aadoue            #+#    #+#             */
-/*   Updated: 2023/04/09 17:38:56 by aadoue           ###   ########.fr       */
+/*   Created: 2023/04/09 16:24:01 by aadoue            #+#    #+#             */
+/*   Updated: 2023/04/09 16:24:04 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_mod(long number)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (number < 0)
-		number *= -1;
-	return (number);
+	if (! lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

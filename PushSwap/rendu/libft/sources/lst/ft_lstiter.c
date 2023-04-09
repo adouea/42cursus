@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mod.c                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 17:38:53 by aadoue            #+#    #+#             */
-/*   Updated: 2023/04/09 17:38:56 by aadoue           ###   ########.fr       */
+/*   Created: 2023/04/09 16:23:02 by aadoue            #+#    #+#             */
+/*   Updated: 2023/04/09 16:23:16 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_mod(long number)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (number < 0)
-		number *= -1;
-	return (number);
+	if (! lst || ! f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

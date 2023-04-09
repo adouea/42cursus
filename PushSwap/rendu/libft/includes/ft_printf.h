@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include "libft.h"
 
 unsigned long long	str_len(const char *s);
 char				*ft_strchr(const char *s, int c);
