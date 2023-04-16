@@ -76,6 +76,7 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memset(void *s, int c, size_t n);
 void			*ft_raise_error(char *text, int end);
+void			ft_raise_error_2(char *err_text, void **to_free, int end);
 
 //Numbers
 

@@ -94,7 +94,7 @@ void	test_actions(t_stack **stk_a)
 	if (! input || ! store_actions(&plain_actions, input))
 	{
 		free_stack(stk_a);
-		raise_error("Error", (void **) &input, 1);
+		ft_raise_error_2("Error",(void **) &input, 1);
 	}
 	actions = ft_split(plain_actions, '|');
 	run_actions(actions, stk_a);

@@ -35,7 +35,8 @@ int ft_atoi_safe(char *str, int &err_flag)
   return nb;
 }
 
-
+Listing sources :
+ls ***/*.c | tr '\n' ' '
 
 ** testing :
 

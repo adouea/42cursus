@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadoue <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/09 18:22:04 by aadoue            #+#    #+#             */
-/*   Updated: 2023/04/09 18:22:52 by aadoue           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fra <fra@student.42.fr>                      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/11/30 15:37:34 by faru          #+#    #+#                 */
-/*   Updated: 2023/03/23 03:20:46 by fra           ########   odam.nl         */
+/*   Created: 2023/04/12 16:18:28 by aadoue            #+#    #+#             */
+/*   Updated: 2023/04/12 16:18:31 by aadoue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +117,8 @@ t_stack	*find_alpha(t_stack *to_check, t_stack *stk);
 // finds the smallest element in stack stk bigger than to_check (inf)
 // beta < i, for every i belonging to stk && i > beta > to_check
 // @param to_check	-> minimum element
-// @param stk		-> stack in which search for beta
+// @param stk		-> stack in which searcbft.h:25:11: fatal error: '../push_swap.h' file not found
+//# include "../push_swap.h"h for beta
 //
 // @return t_stack*	-> beta aka inf
 t_stack	*find_beta(t_stack *to_check, t_stack *stk);
@@ -188,7 +177,8 @@ int		get_rr(int m1, int m2);
 
 // gets the final amount of rot/rev. rot and, if present the doubles,
 // @param mv_a	-> rot/rev. rot to do on a
-// @param mv_b	-> rot/rev. rot to do on b
+// @param mv_b	-> rot/rev. rot to do on bbft.h:25:11: fatal error: '../push_swap.h' file not found
+//# include "../push_swap.h"
 //
 // @return int	-> gives back the total rot/rev. rot to apply on a + b
 int		count_moves(int mv_a, int mv_b);

@@ -26,7 +26,7 @@ void	initialize_stack(int argc, char **argv, t_stack **stk)
 		argc = 0;
 		argv = ft_split(argv[1], ' ');
 		if (! argv || !argv[argc])
-			raise_error("Error", NULL, 1);
+			ft_raise_error_2("Error", NULL, 1);
 		while (argv[argc])
 			argc++;
 		free_argv++;
@@ -37,7 +37,7 @@ void	initialize_stack(int argc, char **argv, t_stack **stk)
 	if (free_argv)
 		ft_free_double((void ***) &argv, argc);
 	if (! status)
-		raise_error("Error", NULL, 1);
+		ft_raise_error_2("Error", NULL, 1);
 }
 
 void	free_stack(t_stack **lst)
